@@ -3,9 +3,9 @@
 	<fieldset>
  		<legend><?php __('Mcp Add Iso User'); ?></legend>
 	<?php
+		echo $this->Form->input('iso_id');
 		echo $this->Form->input('username');
 		echo $this->Form->input('passwd');
-		echo $this->Form->input('password_token');
 		echo $this->Form->input('email');
 		echo $this->Form->input('is_admin');
 		echo $this->Form->input('role');
