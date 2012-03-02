@@ -26,6 +26,32 @@ class M4f4fe8e7c46046d0a6441607d2bac6d6 extends CakeMigration {
 					'created' => array('type'=>'datetime', 'null' => true, 'default' => NULL),
 					'modified' => array('type'=>'datetime', 'null' => true, 'default' => NULL),
 				),
+				'iso_listings' => array(
+					'id' => array('type'=>'string', 'null' => false, 'default' => NULL, 'length' => 36, 'key' => 'primary'),
+					'iso_id' => array('type'=>'string', 'null' => false, 'default' => NULL, 'length' => 36),
+					'address_id' => array('type'=>'integer', 'null' => false, 'default' => NULL, 'length' => 11),
+					'state_id' => array('type'=>'integer', 'null' => false, 'default' => NULL, 'length' => 11),
+					'city_id' => array('type'=>'integer', 'null' => false, 'default' => NULL, 'length' => 11),
+					'name' => array('type'=>'string', 'null' => false, 'default' => NULL),
+					'slug' => array('type'=>'string', 'null' => false, 'default' => NULL),
+					'url' => array('type' => 'string', 'null' => false, 'default' => null),
+					'phone' => array('type' => 'string', 'null' => false, 'default' => null),
+					'fax' => array('type' => 'string', 'null' => false, 'default' => null),
+					'short_description' => array('type' => 'string', 'null' => false, 'default' => null),
+					'long_description' => array('type' => 'text', 'null' => false, 'default' => null),
+					'keywords' => array('type' => 'text', 'null' => false, 'default' => null),
+					'business_hours' => array('type' => 'text', 'null' => false, 'default' => null),
+					'url' => array('type' => 'string', 'null' => false, 'default' => null),
+					'active' => array('type'=>'boolean', 'null' => true, 'default' => '0'),
+					'created' => array('type'=>'datetime', 'null' => true, 'default' => NULL),
+					'modified' => array('type'=>'datetime', 'null' => true, 'default' => NULL),
+				),
+				'iso_categories' => array(
+					'id' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 36, 'key' => 'primary'),
+					'iso_listing_id' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 36),
+					'category_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 11),
+					
+				),
 				'iso_users' => array(
 					'id' => array('type'=>'string', 'null' => false, 'default' => NULL, 'length' => 36, 'key' => 'primary'),
 					'iso_id' => array('type'=>'string', 'null' => false, 'default' => NULL, 'length' => 36),
@@ -55,7 +81,7 @@ class M4f4fe8e7c46046d0a6441607d2bac6d6 extends CakeMigration {
 		),
 		'down' => array(
 			'drop_table' => array(
-				'isos', 'iso_users',
+				'isos', 'iso_users', 'iso_listings', 'iso_categories'
 			)
 		),
 	);
