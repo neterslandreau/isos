@@ -1,6 +1,5 @@
 <?php
-
-class IsosAppModel extends AppModel {
+class IsosAppModel extends Model {
 
 }
 

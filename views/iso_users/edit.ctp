@@ -1,7 +1,7 @@
 <div class="isoUsers form">
 <?php echo $this->Form->create('IsoUser');?>
 	<fieldset>
-		<legend><?php __('Edit Iso User'); ?></legend>
+ 		<legend><?php __('Edit Iso User'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('iso_id');

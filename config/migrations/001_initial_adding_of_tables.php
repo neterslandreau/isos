@@ -54,7 +54,9 @@ class M4f4fe8e7c46046d0a6441607d2bac6d6 extends CakeMigration {
 			),
 		),
 		'down' => array(
-			'isos', 'iso_users',
+			'drop_table' => array(
+				'isos', 'iso_users',
+			)
 		),
 	);
 

@@ -1,5 +1,5 @@
 <?php
-/* IsoUsers Test cases generated on: 2012-03-01 16:59:17 : 1330639157*/
+/* IsoUsers Test cases generated on: 2012-03-02 09:00:55 : 1330696855*/
 App::import('Controller', 'Isos.IsoUsers');
 
 class TestIsoUsersController extends IsoUsersController {
@@ -22,3 +22,4 @@ class IsoUsersControllerTestCase extends CakeTestCase {
 	}
 
 }
+?>

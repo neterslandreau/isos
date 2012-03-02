@@ -1,8 +1,9 @@
 <div class="isoUsers form">
 <?php echo $this->Form->create('IsoUser');?>
 	<fieldset>
- 		<legend><?php __('Add Iso User'); ?></legend>
+ 		<legend><?php __('Mcp Edit Iso User'); ?></legend>
 	<?php
+		echo $this->Form->input('id');
 		echo $this->Form->input('iso_id');
 		echo $this->Form->input('username');
 		echo $this->Form->input('slug');
@@ -26,6 +27,7 @@
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 
+		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('IsoUser.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('IsoUser.id'))); ?></li>
 		<li><?php echo $this->Html->link(__('List Iso Users', true), array('action' => 'index'));?></li>
 		<li><?php echo $this->Html->link(__('List Isos', true), array('controller' => 'isos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Iso', true), array('controller' => 'isos', 'action' => 'add')); ?> </li>

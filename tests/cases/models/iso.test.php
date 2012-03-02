@@ -3,11 +3,11 @@
 App::import('Model', 'Isos.Iso');
 
 class IsoTestCase extends CakeTestCase {
-	function startTest() {
+	public function startTest() {
 		$this->Iso =& ClassRegistry::init('Iso');
 	}
 
-	function endTest() {
+	public function endTest() {
 		unset($this->Iso);
 		ClassRegistry::flush();
 	}
