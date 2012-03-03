@@ -1,54 +1,48 @@
 <?php
 class IsoUser extends IsosAppModel {
 	public $name = 'IsoUser';
+/* */
 	public $validate = array(
 		'iso_id' => array(
 			'uuid' => array(
 				'rule' => array('uuid'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'message' => 'not uuid',
 			),
 		),
 		'username' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'rule' => 'notEmpty',
+				'message' => 'Your custom message here',
 			),
 		),
 		'email' => array(
 			'isValid' => array(
 				'rule' => 'email',
 				'required' => true,
-				'message' => __('Please enter a valid email address.', true),
+				'message' => 'Please enter a valid email address.',
 			),
 			'isUnique' => array(
-				'rule' => array('isUnique', 'email'),
-				'message' => __('This email is already in use.', true),
+				'rule' => array('isUnique','email'),
+				'message' => 'This email is already in use.',
 			),
 		),
 		'passwd' => array(
 			'too_short' => array(
 				'rule' => array('minLength', '6'),
-				'message' => __('The password must have at least 6 characters', true),
+				'message' => 'The password must have at least 6 characters',
 			),
 			'required' => array(
 				'rule' => 'notEmpty',
-				'message' => __('', true),
+				'message' => 'A password is required',
 			),
 		),
 		'temppassword' => array(
 			'rule' => 'confirmPassword',
-			'message' => __('The passwords do not match. Please try again.', true),
+			'message' => 'The passwords do not match. Please try again.',
 		),
-	);
 
+	);
+/* */
 	public $belongsTo = array(
 		'Iso' => array(
 			'className' => 'Iso',

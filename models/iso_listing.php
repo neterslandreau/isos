@@ -140,5 +140,8 @@ class IsoListing extends IsosAppModel {
 			'foreignKey' => 'iso_listing_id',
 		),
 	);
+	public $actsAs = array(
+		'Tags.Tagable',
+	);
 }
 ?>
