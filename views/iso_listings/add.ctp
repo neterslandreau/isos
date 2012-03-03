@@ -17,6 +17,7 @@
 		echo $this->Form->input('keywords');
 		echo $this->Form->input('business_hours');
 		echo $this->Form->input('active');
+		echo $this->Form->input('tags');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

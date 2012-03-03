@@ -1,6 +1,7 @@
 <?php
 class IsoListing extends IsosAppModel {
 	public $name = 'IsoListing';
+/* *
 	public $validate = array(
 		'iso_id' => array(
 			'notempty' => array(
@@ -103,7 +104,7 @@ class IsoListing extends IsosAppModel {
 			),
 		),
 	);
-
+/* */
 	public $belongsTo = array(
 		'Iso' => array(
 			'className' => 'Iso',
@@ -141,7 +142,7 @@ class IsoListing extends IsosAppModel {
 		),
 	);
 	public $actsAs = array(
-		'Tags.Tagable',
+		'Tags.Taggable',
 	);
 }
 ?>
