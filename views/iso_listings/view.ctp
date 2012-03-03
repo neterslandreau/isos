@@ -61,11 +61,13 @@
 			<?php echo $isoListing['IsoListing']['long_description']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Keywords'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $isoListing['IsoListing']['keywords']; ?>
-			&nbsp;
-		</dd>
+		<ul id="tagcloud">
+		<?php 
+			echo $this->TagCloud->display($tags, array(
+				'before' => '<li size="%size%" class="tag">',
+				'after' => '</li>'));
+		?>
+		</ul>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Business Hours'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $isoListing['IsoListing']['business_hours']; ?>

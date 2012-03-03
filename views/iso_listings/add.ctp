@@ -4,20 +4,22 @@
  		<legend><?php __('Add Iso Listing'); ?></legend>
 	<?php
 		echo $this->Form->input('iso_id');
-		echo $this->Form->input('address_id');
-		echo $this->Form->input('state_id');
-		echo $this->Form->input('city_id');
 		echo $this->Form->input('name');
-		echo $this->Form->input('slug');
+		echo $this->Form->input('address1');
+		echo $this->Form->input('address2');
+		echo $this->Form->input('city');
+		echo $this->Form->input('state_id');
+		echo $this->Form->input('postal_code');
 		echo $this->Form->input('url');
 		echo $this->Form->input('phone');
 		echo $this->Form->input('fax');
 		echo $this->Form->input('short_description');
 		echo $this->Form->input('long_description');
-		echo $this->Form->input('keywords');
 		echo $this->Form->input('business_hours');
+		echo $this->Form->input('tags', array(
+			'label' => 'Keywords (comma separated)'
+		));
 		echo $this->Form->input('active');
-		echo $this->Form->input('tags');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

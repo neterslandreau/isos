@@ -65,18 +65,22 @@ class IsoUsersController extends IsosAppController {
 
 	public function mcp_index() {
 		$this->index();
+		$this->render('index');
 	}
 
 	public function mcp_view($id = null) {
 		$this->view($id);
+		$this->render('view');
 	}
 
 	public function mcp_add() {
 		$this->add();
+		$this->render('add');
 	}
 
 	public function mcp_edit($id = null) {
 		$this->edit($id);
+		$this->render('edit');
 	}
 
 	public function mcp_delete($id = null) {
@@ -84,18 +88,22 @@ class IsoUsersController extends IsosAppController {
 	}
 	public function cc_index() {
 		$this->index();
+		$this->render('index');
 	}
 
 	public function cc_view($id = null) {
 		$this->view($id);
+		$this->render('view');
 	}
 
 	public function cc_add() {
 		$this->add();
+		$this->render('add');
 	}
 
 	public function cc_edit($id = null) {
 		$this->edit($id);
+		$this->render('edit');
 	}
 
 	public function cc_delete($id = null) {

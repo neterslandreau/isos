@@ -1,5 +1,9 @@
 <?php
 class IsosAppController extends AppController {
+	public function __construct() {
+		parent::__construct();
+		$this->helpers[] = 'Tags.TagCloud';
+	}
 /* *
 	public function beforeFilter() {
 		if (Configure::read('debug')) {

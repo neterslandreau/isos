@@ -142,6 +142,10 @@ class IsoListing extends IsosAppModel {
 		),
 	);
 	public $actsAs = array(
+		'Utils.Sluggable' => array(
+			'label' => 'name',
+			'method' => 'multibyteSlug',
+		),
 		'Tags.Taggable',
 	);
 }

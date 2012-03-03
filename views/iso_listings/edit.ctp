@@ -15,7 +15,7 @@
 		echo $this->Form->input('fax');
 		echo $this->Form->input('short_description');
 		echo $this->Form->input('long_description');
-		echo $this->Form->input('keywords');
+		echo $this->Form->input('tags');
 		echo $this->Form->input('business_hours');
 		echo $this->Form->input('active');
 	?>
@@ -26,7 +26,7 @@
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('IsoListing.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('IsoListing.id'))); ?></li>
+		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('IsoListing.name')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('IsoListing.id'))); ?></li>
 		<li><?php echo $this->Html->link(__('List Iso Listings', true), array('action' => 'index'));?></li>
 		<li><?php echo $this->Html->link(__('List Isos', true), array('controller' => 'isos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Iso', true), array('controller' => 'isos', 'action' => 'add')); ?> </li>
