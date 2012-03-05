@@ -27,7 +27,26 @@ class IsoListingFixture extends CakeTestFixture {
 
 	var $records = array(
 		array(
-			'id' => '4f5123d7-2750-460c-a6ab-48ce7f000001',
+			'id' => '11111111-1111-1111-1111-111111111111',
+			'iso_id' => '4f4ff0d9-7e54-480d-9f49-1768d2bac6d6',
+			'address_id' => 14415235,
+			'state_id' => 1,
+			'city_id' => 43217,
+			'name' => 'Lorem ipsum dolor sit amet',
+			'slug' => 'Lorem ipsum dolor sit amet',
+			'url' => 'Lorem ipsum dolor sit amet',
+			'phone' => 'Lorem ipsum dolor sit amet',
+			'fax' => 'Lorem ipsum dolor sit amet',
+			'short_description' => 'Lorem ipsum dolor sit amet',
+			'long_description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
+			'keywords' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
+			'business_hours' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
+			'active' => 1,
+			'created' => '2012-03-02 14:47:35',
+			'modified' => '2012-03-02 14:47:35'
+		),
+		array(
+			'id' => '11111111-1111-1111-1111-111111111112',
 			'iso_id' => '4f4ff0d9-7e54-480d-9f49-1768d2bac6d6',
 			'address_id' => 14415235,
 			'state_id' => 1,

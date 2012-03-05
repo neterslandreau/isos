@@ -27,7 +27,8 @@ class Iso extends IsosAppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		)
+		),
+		'IsoListing',
 	);
 	
 	public $actsAs = array(

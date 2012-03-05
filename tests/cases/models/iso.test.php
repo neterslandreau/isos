@@ -33,4 +33,8 @@ class IsoTestCase extends CakeTestCase {
 		ClassRegistry::flush();
 	}
 
+	public function testFind() {
+		$results = $this->Iso->find('all');
+		debug($results);
+	}
 }

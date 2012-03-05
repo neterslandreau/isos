@@ -8,6 +8,27 @@ class IsoListingsController extends IsosAppController {
 		$this->set('isoListings', $this->paginate());
 	}
 
+	public function dashboard($role = null) {
+		if ($role) {
+			$this->set('role', $role);
+		} else {
+			$this->cakeError('error404');
+		}
+	}
+	
+	public function listings($isoId = null) {
+		if ($isoId) {
+			$listings = $this->IsoListing->find('all', array(
+				'conditions' => array(
+					'IsoListing.iso_id' => $isoId,
+				),
+			));
+			$this->set('listings', $listings);
+		} else {
+			$this->cakeError('error404');
+		}
+	}
+
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid iso listing', true));

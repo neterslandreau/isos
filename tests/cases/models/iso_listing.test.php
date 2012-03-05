@@ -25,7 +25,7 @@ class IsoListingTestCase extends CakeTestCase {
 		'app.seo_property', 'app.school_program', 'app.career_program',
 		'app.career', 'app.source', 'app.review', 'app.ocn_suppression',
 		'plugin.isos.iso_listing', 'plugin.isos.iso', 'plugin.isos.iso_user',
-		'plugin.isos.iso_category'
+		'plugin.isos.iso_category', 'plugin.tags.tag', 'plugin.tags.tagged'
 	);
 
 	public function startTest() {
