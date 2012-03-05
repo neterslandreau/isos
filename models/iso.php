@@ -15,19 +15,6 @@ class Iso extends IsosAppModel {
 	);
 
 	public $hasMany = array(
-		'IsoUser' => array(
-			'className' => 'IsoUser',
-			'foreignKey' => 'iso_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
 		'IsoListing',
 	);
 	
