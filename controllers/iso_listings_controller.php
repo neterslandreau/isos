@@ -49,25 +49,25 @@ class IsoListingsController extends IsosAppController {
 	function add() {
 		if (!empty($this->data)) {
 die(debug($this->data));
-			$this->IsoListing->create();
-			if ($this->IsoListing->save($this->data)) {
+//			$this->IsoListing->create();
+			if ($this->IsoListing->processListing($this->data)) {
 				$this->Session->setFlash(__('The iso listing has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The iso listing could not be saved. Please, try again.', true));
 			}
 		}
-		$isos = $this->IsoListing->Iso->find('first', array(
+		$iso = $this->IsoListing->Iso->find('first', array(
 			'conditions' => array(
 				'Iso.id' => $this->Auth->user('iso_id'),
 			),
 			'contain' => array(),
 			'fields' => array('id', 'country_id')
 		));
-		$states = $this->IsoListing->getStates($isos['Iso']['country_id']);
+		$states = $this->IsoListing->getStates($iso['Iso']['country_id']);
 //		debug($states);
 //		$cities = $this->IsoListing->City->find('list');
-		$this->set(compact('isos', 'states', 'cities'));
+		$this->set(compact('iso', 'states', 'cities'));
 	}
 
 	function edit($id = null) {

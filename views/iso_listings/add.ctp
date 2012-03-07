@@ -8,7 +8,11 @@
 	<?php
 		echo $this->Form->input('iso_id', array(
 			'type' => 'hidden',
-			'value' => $isos['Iso']['id'],
+			'value' => $iso['Iso']['id'],
+		));
+		echo $this->Form->input('Address.country_id', array(
+			'type' => 'hidden',
+			'value' => $iso['Iso']['country_id'],
 		));
 		echo $this->Form->input('name');
 		echo $this->Form->input('Address.address1');

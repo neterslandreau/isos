@@ -1,7 +1,7 @@
 <?php
 class IsoListing extends IsosAppModel {
 	public $name = 'IsoListing';
-/* *
+/* */
 	public $validate = array(
 		'iso_id' => array(
 			'notempty' => array(
@@ -13,96 +13,96 @@ class IsoListing extends IsosAppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'address_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'state_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'city_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+//		'address_id' => array(
+//			'numeric' => array(
+//				'rule' => array('numeric'),
+//				//'message' => 'Your custom message here',
+//				//'allowEmpty' => false,
+//				//'required' => false,
+//				//'last' => false, // Stop validation after this rule
+//				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+//			),
+//		),
+//		'state_id' => array(
+//			'numeric' => array(
+//				'rule' => array('numeric'),
+//				//'message' => 'Your custom message here',
+//				//'allowEmpty' => false,
+//				//'required' => false,
+//				//'last' => false, // Stop validation after this rule
+//				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+//			),
+//		),
+//		'city_id' => array(
+//			'numeric' => array(
+//				'rule' => array('numeric'),
+//				//'message' => 'Your custom message here',
+//				//'allowEmpty' => false,
+//				//'required' => false,
+//				//'last' => false, // Stop validation after this rule
+//				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+//			),
+//		),
 		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'The listing requires a name.',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'slug' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'url' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+//		'slug' => array(
+//			'notempty' => array(
+//				'rule' => array('notempty'),
+//				//'message' => 'Your custom message here',
+//				//'allowEmpty' => false,
+//				//'required' => false,
+//				//'last' => false, // Stop validation after this rule
+//				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+//			),
+//		),
+//		'url' => array(
+//			'notempty' => array(
+//				'rule' => array('notempty'),
+//				//'message' => 'Your custom message here',
+//				//'allowEmpty' => false,
+//				//'required' => false,
+//				//'last' => false, // Stop validation after this rule
+//				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+//			),
+//		),
 		'phone' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'The listing requires a phone.',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'fax' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'short_description' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+//		'fax' => array(
+//			'notempty' => array(
+//				'rule' => array('notempty'),
+//				//'message' => 'Your custom message here',
+//				//'allowEmpty' => false,
+//				//'required' => false,
+//				//'last' => false, // Stop validation after this rule
+//				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+//			),
+//		),
+//		'short_description' => array(
+//			'notempty' => array(
+//				'rule' => array('notempty'),
+//				//'message' => 'Your custom message here',
+//				//'allowEmpty' => false,
+//				//'required' => false,
+//				//'last' => false, // Stop validation after this rule
+//				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+//			),
+//		),
 	);
 /* */
 	public $belongsTo = array(
@@ -120,6 +120,7 @@ class IsoListing extends IsosAppModel {
 			'fields' => '',
 			'order' => ''
 		),
+/*
 		'State' => array(
 			'className' => 'State',
 			'foreignKey' => 'state_id',
@@ -134,6 +135,7 @@ class IsoListing extends IsosAppModel {
 			'fields' => '',
 			'order' => ''
 		),
+ */
 	);
 	public $hasMany = array(
 		'IsoCategory' => array(
@@ -156,7 +158,7 @@ class IsoListing extends IsosAppModel {
  */
 	public function getStates($countryId = null) {
 		if ($countryId) {
-			$states = $this->State->find('list', array(
+			$states = $this->Address->State->find('list', array(
 				'conditions' => array(
 					'State.country_id' => $countryId,
 				),
@@ -173,20 +175,30 @@ class IsoListing extends IsosAppModel {
  */
 	public function getCities($id = null) {
 		if ($id) {
-			$state = $this->State->find('first', array(
+			$state = $this->Address->State->find('first', array(
 				'conditions' => array(
 					'State.id' => $id,
 				),
 				'contain' => array(),
 				'fields' => array('region_id'),
 			));
-			$cities = $this->City->find('list', array(
+			$cities = $this->Address->City->find('list', array(
 				'conditions' => array(
 					'City.region_id' => $state['State']['region_id'],
 				)
 			));
 			$rtn['Cities'] = $cities;
 			return $rtn;
+		}
+		return false;
+	}
+
+	public function processListing($listing = array()) {
+		if (!empty($listing)) {
+			if ($this->saveAll($listing)) {
+				return true;
+			}
+			debug($this->invalidFields());
 		}
 		return false;
 	}

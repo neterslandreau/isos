@@ -1,6 +1,14 @@
 <?php
 class Iso extends IsosAppModel {
+/**
+ *
+ * @var string 
+ */
 	public $name = 'Iso';
+/**
+ *
+ * @var array
+ */
 	public $validate = array(
 		'name' => array(
 			'notempty' => array(
@@ -13,18 +21,28 @@ class Iso extends IsosAppModel {
 			),
 		),
 	);
-
+/**
+ *
+ * @var array
+ */
 	public $hasMany = array(
 		'IsoListing',
 		'User',
 	);
-
+/**
+ *
+ * @var array
+ */
 	public $belongsTo = array(
 		'Country' => array(
 			'className' => 'Country',
 			'foreign_key' => 'country_id',
 		),
 	);
+/**
+ *
+ * @var array
+ */
 	public $actsAs = array(
 		'Utils.Sluggable' => array(
 			'label' => 'name',

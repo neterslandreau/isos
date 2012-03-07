@@ -37,15 +37,54 @@ class IsoListingTestCase extends CakeTestCase {
 		ClassRegistry::flush();
 	}
 	public function testFind() {
-//		$listings = $this->IsoListing->find('all');
+		$listings = $this->IsoListing->find('all');
 //		debug($listings);
 	}
 	public function testGetCities() {
-		$id = 1;
-		$results = $this->IsoListing->getCities();
+//		$id = 1;
+//		$results = $this->IsoListing->getCities();
+//		$this->assertFalse($results);
+//		
+//		$results = $this->IsoListing->getCities($id);
+	}
+	public function testProcessListing() {
+		$listing = array(
+			'IsoListing' => array(
+				'iso_id' => '4f562714-a178-4efb-8f76-59a9c0a80564',
+				'name' => 'New Listing',
+				'url' => 'http://www.think-knot.com/',
+				'phone' => '9545551212',
+				'fax' => '9545551213',
+				'short_description' => 'Thinking Knot',
+				'long_description' => 'Knot thinking at all.',
+				'business_hours' => '8am to 5pm M-F',
+				'tags' => 'knot, thinking, ever',
+				'active' => 1,
+				),
+			'Address' => array(
+				'country_id' => 76,
+				'address1' => '123 Main St.',
+				'address2' => 'Suite 103',
+				'state_id' => '308',
+				'city_id' => '55496',
+				'zipcode' => 'w1h 8gn',
+			),
+		);
+		$results = $this->IsoListing->processListing();
 		$this->assertFalse($results);
 		
-		$results = $this->IsoListing->getCities($id);
+		$results = $this->IsoListing->processListing($listing);
+		$this->assertTrue($results);
+		
+		$listing['Address']['zipcode'] = 'EC1A 1BB';
+		$results = $this->IsoListing->processListing($listing);
+		$this->assertTrue($results);
+		
+		$listing['Address']['zipcode'] = '33304';
+		$listing['Address']['country_id'] = 230;
+		$this->assertTrue($results);
+		
+		
 	}
 }
 ?>
