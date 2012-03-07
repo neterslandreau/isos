@@ -22,10 +22,10 @@ class IsoTestCase extends CakeTestCase {
 		'app.school_zipcode', 'app.school_campus', 'app.school',
 		'app.seo_property', 'app.school_program', 'app.career_program',
 		'app.career', 'app.source', 'app.review', 'app.ocn_suppression',
-		'plugin.isos.iso_listing', 'plugin.isos.iso', 'plugin.isos.iso_user'
+		'plugin.isos.iso_listing', 'plugin.isos.iso', 'plugin.isos.iso_category'
 	);
 	public function startTest() {
-		$this->Iso =& ClassRegistry::init('Iso');
+		$this->Iso = ClassRegistry::init('Iso');
 	}
 
 	public function endTest() {

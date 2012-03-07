@@ -11,6 +11,7 @@ class IsoListingsController extends IsosAppController {
 	public function dashboard($role = null) {
 		if ($role) {
 			$this->set('role', $role);
+			$this->set('iso_id', $this->Auth->user('iso_id'));
 		} else {
 			$this->cakeError('error404');
 		}
@@ -18,12 +19,13 @@ class IsoListingsController extends IsosAppController {
 	
 	public function listings($isoId = null) {
 		if ($isoId) {
-			$listings = $this->IsoListing->find('all', array(
+			$isoListings = $this->IsoListing->find('all', array(
 				'conditions' => array(
 					'IsoListing.iso_id' => $isoId,
 				),
 			));
-			$this->set('listings', $listings);
+			$this->set('isoListings', $this->paginate());
+			$this->render('index');
 		} else {
 			$this->cakeError('error404');
 		}
@@ -46,6 +48,7 @@ class IsoListingsController extends IsosAppController {
 
 	function add() {
 		if (!empty($this->data)) {
+die(debug($this->data));
 			$this->IsoListing->create();
 			if ($this->IsoListing->save($this->data)) {
 				$this->Session->setFlash(__('The iso listing has been saved', true));
@@ -54,11 +57,17 @@ class IsoListingsController extends IsosAppController {
 				$this->Session->setFlash(__('The iso listing could not be saved. Please, try again.', true));
 			}
 		}
-		$isos = $this->IsoListing->Iso->find('list');
-		$addresses = $this->IsoListing->Address->find('list');
-		$states = $this->IsoListing->State->find('list');
-		$cities = $this->IsoListing->City->find('list');
-		$this->set(compact('isos', 'addresses', 'states', 'cities'));
+		$isos = $this->IsoListing->Iso->find('first', array(
+			'conditions' => array(
+				'Iso.id' => $this->Auth->user('iso_id'),
+			),
+			'contain' => array(),
+			'fields' => array('id', 'country_id')
+		));
+		$states = $this->IsoListing->getStates($isos['Iso']['country_id']);
+//		debug($states);
+//		$cities = $this->IsoListing->City->find('list');
+		$this->set(compact('isos', 'states', 'cities'));
 	}
 
 	function edit($id = null) {
@@ -119,6 +128,16 @@ class IsoListingsController extends IsosAppController {
 
 	function mcp_delete($id = null) {
 		$this->delete($id);
+	}
+	public function getCities($stateId = null) {
+		if ($this->RequestHandler->isAjax()) {
+			$results = $this->IsoListing->getCities($stateId);
+//			debug($results);
+			$this->set('results', $results);
+		} else {
+			$this->cakeError('error404');
+		}
+		
 	}
 }
 ?>

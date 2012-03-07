@@ -26,6 +26,8 @@ class IsosController extends IsosAppController {
 				$this->Session->setFlash(__('The iso could not be saved. Please, try again.', true));
 			}
 		}
+		$countries = $this->Iso->Country->find('list');
+		$this->set('countries', $countries);
 	}
 
 	public function edit($id = null) {
@@ -43,6 +45,8 @@ class IsosController extends IsosAppController {
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Iso->read(null, $id);
+			$countries = $this->Iso->Country->find('list');
+			$this->set('countries', $countries);
 		}
 	}
 
@@ -57,6 +61,15 @@ class IsosController extends IsosAppController {
 		}
 		$this->Session->setFlash(__('Iso was not deleted', true));
 		$this->redirect(array('action' => 'index'));
+	}
+
+	public function agent_manager() {
+		$agents = $this->Iso->User->find('all', array(
+			'conditions' => array(
+				'User.iso_id' => $this->Auth->user('iso_id')
+			),
+		));
+		$this->set('agents', $agents);
 	}
 
 	public function mcp_index() {

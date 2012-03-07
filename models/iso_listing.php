@@ -133,7 +133,7 @@ class IsoListing extends IsosAppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
+		),
 	);
 	public $hasMany = array(
 		'IsoCategory' => array(
@@ -148,5 +148,47 @@ class IsoListing extends IsosAppModel {
 		),
 		'Tags.Taggable',
 	);
+/**
+ * Returns states associated with an ISO country
+ *
+ * @param type $countryId
+ * @return boolean|array
+ */
+	public function getStates($countryId = null) {
+		if ($countryId) {
+			$states = $this->State->find('list', array(
+				'conditions' => array(
+					'State.country_id' => $countryId,
+				),
+			));
+			return $states;
+		}
+		return false;
+	}
+/**
+ * Returns cities located in the same region as the state
+ *
+ * @param type $id
+ * @return boolean|array
+ */
+	public function getCities($id = null) {
+		if ($id) {
+			$state = $this->State->find('first', array(
+				'conditions' => array(
+					'State.id' => $id,
+				),
+				'contain' => array(),
+				'fields' => array('region_id'),
+			));
+			$cities = $this->City->find('list', array(
+				'conditions' => array(
+					'City.region_id' => $state['State']['region_id'],
+				)
+			));
+			$rtn['Cities'] = $cities;
+			return $rtn;
+		}
+		return false;
+	}
 }
 ?>

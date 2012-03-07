@@ -4,7 +4,7 @@
 		<legend><?php __('Add Iso'); ?></legend>
 	<?php
 		echo $this->Form->input('name');
-		echo $this->Form->input('slug');
+		echo $this->Form->input('country_id');
 		echo $this->Form->input('active');
 	?>
 	</fieldset>

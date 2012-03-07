@@ -16,8 +16,15 @@ class Iso extends IsosAppModel {
 
 	public $hasMany = array(
 		'IsoListing',
+		'User',
 	);
-	
+
+	public $belongsTo = array(
+		'Country' => array(
+			'className' => 'Country',
+			'foreign_key' => 'country_id',
+		),
+	);
 	public $actsAs = array(
 		'Utils.Sluggable' => array(
 			'label' => 'name',

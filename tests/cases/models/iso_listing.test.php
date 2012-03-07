@@ -37,8 +37,15 @@ class IsoListingTestCase extends CakeTestCase {
 		ClassRegistry::flush();
 	}
 	public function testFind() {
-		$listings = $this->IsoListing->find('all');
-		debug($listings);
+//		$listings = $this->IsoListing->find('all');
+//		debug($listings);
+	}
+	public function testGetCities() {
+		$id = 1;
+		$results = $this->IsoListing->getCities();
+		$this->assertFalse($results);
+		
+		$results = $this->IsoListing->getCities($id);
 	}
 }
 ?>

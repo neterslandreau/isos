@@ -13,17 +13,17 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Address'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($isoListing['Address']['id'], array('controller' => 'addresses', 'action' => 'view', $isoListing['Address']['id'])); ?>
+			<?php echo $this->Html->link($isoListing['Address']['id'], array('controller' => 'addresses', 'action' => 'view', $isoListing['Address']['id'], 'plugin' => false)); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('State'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($isoListing['State']['name'], array('controller' => 'states', 'action' => 'view', $isoListing['State']['id'])); ?>
+			<?php echo $this->Html->link($isoListing['State']['name'], array('controller' => 'states', 'action' => 'view', $isoListing['State']['id'], 'plugin' => false)); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('City'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($isoListing['City']['name'], array('controller' => 'cities', 'action' => 'view', $isoListing['City']['id'])); ?>
+			<?php echo $this->Html->link($isoListing['City']['name'], array('controller' => 'cities', 'action' => 'view', $isoListing['City']['id'], 'plugin' => false)); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>

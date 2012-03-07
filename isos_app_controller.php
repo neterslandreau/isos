@@ -2,9 +2,12 @@
 class IsosAppController extends AppController {
 /* */
 	public function beforeFilter() {
-//die(debug('here'));
 		parent::beforeFilter();
-		$this->layout = 'default';
+		$this->helpers[] = 'Tags.TagCloud';
+		$isoRoles = array('iso_agent', 'iso_admin');
+		if (in_array($this->Auth->user('role'), $isoRoles)) {
+			$this->layout = 'default';
+		}
 		if (Configure::read('debug')) {
 			$this->Email->delivery = 'debug';
 		}

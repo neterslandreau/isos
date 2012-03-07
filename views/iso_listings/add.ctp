@@ -1,15 +1,23 @@
+<?php
+	echo $this->Html->script('/isos/js/views/iso_listings/add');
+?>
 <div class="isoListings form">
 <?php echo $this->Form->create('IsoListing');?>
 	<fieldset>
  		<legend><?php __('Add Iso Listing'); ?></legend>
 	<?php
-		echo $this->Form->input('iso_id');
+		echo $this->Form->input('iso_id', array(
+			'type' => 'hidden',
+			'value' => $isos['Iso']['id'],
+		));
 		echo $this->Form->input('name');
-		echo $this->Form->input('address1');
-		echo $this->Form->input('address2');
-		echo $this->Form->input('city');
-		echo $this->Form->input('state_id');
-		echo $this->Form->input('postal_code');
+		echo $this->Form->input('Address.address1');
+		echo $this->Form->input('Address.address2');
+		echo $this->Form->input('Address.state_id', array(
+			'empty' => 'Select a state',
+		));
+		echo $this->Form->input('Address.city_id');
+		echo $this->Form->input('Address.zipcode');
 		echo $this->Form->input('url');
 		echo $this->Form->input('phone');
 		echo $this->Form->input('fax');
