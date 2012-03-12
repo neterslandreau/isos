@@ -13,36 +13,6 @@ class IsoListing extends IsosAppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-//		'address_id' => array(
-//			'numeric' => array(
-//				'rule' => array('numeric'),
-//				//'message' => 'Your custom message here',
-//				//'allowEmpty' => false,
-//				//'required' => false,
-//				//'last' => false, // Stop validation after this rule
-//				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-//			),
-//		),
-//		'state_id' => array(
-//			'numeric' => array(
-//				'rule' => array('numeric'),
-//				//'message' => 'Your custom message here',
-//				//'allowEmpty' => false,
-//				//'required' => false,
-//				//'last' => false, // Stop validation after this rule
-//				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-//			),
-//		),
-//		'city_id' => array(
-//			'numeric' => array(
-//				'rule' => array('numeric'),
-//				//'message' => 'Your custom message here',
-//				//'allowEmpty' => false,
-//				//'required' => false,
-//				//'last' => false, // Stop validation after this rule
-//				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-//			),
-//		),
 		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -53,26 +23,6 @@ class IsoListing extends IsosAppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-//		'slug' => array(
-//			'notempty' => array(
-//				'rule' => array('notempty'),
-//				//'message' => 'Your custom message here',
-//				//'allowEmpty' => false,
-//				//'required' => false,
-//				//'last' => false, // Stop validation after this rule
-//				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-//			),
-//		),
-//		'url' => array(
-//			'notempty' => array(
-//				'rule' => array('notempty'),
-//				//'message' => 'Your custom message here',
-//				//'allowEmpty' => false,
-//				//'required' => false,
-//				//'last' => false, // Stop validation after this rule
-//				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-//			),
-//		),
 		'phone' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -83,26 +33,6 @@ class IsoListing extends IsosAppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-//		'fax' => array(
-//			'notempty' => array(
-//				'rule' => array('notempty'),
-//				//'message' => 'Your custom message here',
-//				//'allowEmpty' => false,
-//				//'required' => false,
-//				//'last' => false, // Stop validation after this rule
-//				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-//			),
-//		),
-//		'short_description' => array(
-//			'notempty' => array(
-//				'rule' => array('notempty'),
-//				//'message' => 'Your custom message here',
-//				//'allowEmpty' => false,
-//				//'required' => false,
-//				//'last' => false, // Stop validation after this rule
-//				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-//			),
-//		),
 	);
 /* */
 	public $belongsTo = array(
@@ -120,29 +50,14 @@ class IsoListing extends IsosAppModel {
 			'fields' => '',
 			'order' => ''
 		),
-/*
-		'State' => array(
-			'className' => 'State',
-			'foreignKey' => 'state_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'City' => array(
-			'className' => 'City',
-			'foreignKey' => 'city_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
- */
+		'Category'
 	);
-	public $hasMany = array(
-		'IsoCategory' => array(
-			'className' => 'Isos.IsoCategory',
-			'foreignKey' => 'iso_listing_id',
-		),
-	);
+//	public $hasMany = array(
+//		'IsoCategory' => array(
+//			'className' => 'Isos.IsoCategory',
+//			'foreignKey' => 'iso_listing_id',
+//		),
+//	);
 	public $actsAs = array(
 		'Utils.Sluggable' => array(
 			'label' => 'name',
@@ -150,6 +65,15 @@ class IsoListing extends IsosAppModel {
 		),
 		'Tags.Taggable',
 	);
+	public function afterSave($created) {
+//		if ($created) {
+//			debug($this->data);
+//			$this->data['IsoCategory']['category_id'] = $this->data['IsoListing']['categories'];
+//			$this->data['IsoCategory']['iso_listing_id'] = $this->id;
+//			$this->IsoCategory->create();
+//			$this->IsoCategory->save($this->data);
+//		}
+	}
 /**
  * Returns states associated with an ISO country
  *
@@ -196,7 +120,7 @@ class IsoListing extends IsosAppModel {
 	public function processListing($listing = array()) {
 		if (!empty($listing)) {
 			if ($this->saveAll($listing)) {
-				return true;
+				return $this->id;
 			}
 			debug($this->invalidFields());
 		}

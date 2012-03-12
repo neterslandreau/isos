@@ -4,7 +4,7 @@ class IsoListingsController extends IsosAppController {
 	var $name = 'IsoListings';
 
 	function index() {
-		$this->IsoListing->recursive = 0;
+		$this->IsoListing->recursive = 1;
 		$this->set('isoListings', $this->paginate());
 	}
 
@@ -48,8 +48,6 @@ class IsoListingsController extends IsosAppController {
 
 	function add() {
 		if (!empty($this->data)) {
-die(debug($this->data));
-//			$this->IsoListing->create();
 			if ($this->IsoListing->processListing($this->data)) {
 				$this->Session->setFlash(__('The iso listing has been saved', true));
 				$this->redirect(array('action' => 'index'));
@@ -64,9 +62,9 @@ die(debug($this->data));
 			'contain' => array(),
 			'fields' => array('id', 'country_id')
 		));
+		$categories = $this->IsoListing->Category->find('list');
+		$this->set('categories', $categories);
 		$states = $this->IsoListing->getStates($iso['Iso']['country_id']);
-//		debug($states);
-//		$cities = $this->IsoListing->City->find('list');
 		$this->set(compact('iso', 'states', 'cities'));
 	}
 

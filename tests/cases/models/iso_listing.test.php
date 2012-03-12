@@ -41,16 +41,16 @@ class IsoListingTestCase extends CakeTestCase {
 //		debug($listings);
 	}
 	public function testGetCities() {
-//		$id = 1;
-//		$results = $this->IsoListing->getCities();
-//		$this->assertFalse($results);
-//		
-//		$results = $this->IsoListing->getCities($id);
+		$id = 1;
+		$results = $this->IsoListing->getCities();
+		$this->assertFalse($results);
+		
+		$results = $this->IsoListing->getCities($id);
 	}
 	public function testProcessListing() {
 		$listing = array(
 			'IsoListing' => array(
-				'iso_id' => '4f562714-a178-4efb-8f76-59a9c0a80564',
+				'iso_id' => '4f4ff0d9-7e54-480d-9f49-1768d2bac6d6',
 				'name' => 'New Listing',
 				'url' => 'http://www.think-knot.com/',
 				'phone' => '9545551212',
@@ -60,6 +60,7 @@ class IsoListingTestCase extends CakeTestCase {
 				'business_hours' => '8am to 5pm M-F',
 				'tags' => 'knot, thinking, ever',
 				'active' => 1,
+				'category_id' => 2,
 				),
 			'Address' => array(
 				'country_id' => 76,
@@ -74,15 +75,21 @@ class IsoListingTestCase extends CakeTestCase {
 		$this->assertFalse($results);
 		
 		$results = $this->IsoListing->processListing($listing);
-		$this->assertTrue($results);
+		$nl = $this->IsoListing->find('first', array(
+			'conditions' => array(
+				'IsoListing.id' => $results,
+			)
+		));
+//		debug($nl);
+//		$this->assertTrue($results);
 		
-		$listing['Address']['zipcode'] = 'EC1A 1BB';
-		$results = $this->IsoListing->processListing($listing);
-		$this->assertTrue($results);
+//		$listing['Address']['zipcode'] = 'EC1A 1BB';
+//		$results = $this->IsoListing->processListing($listing);
+//		$this->assertTrue($results);
 		
-		$listing['Address']['zipcode'] = '33304';
-		$listing['Address']['country_id'] = 230;
-		$this->assertTrue($results);
+//		$listing['Address']['zipcode'] = '33304';
+//		$listing['Address']['country_id'] = 230;
+//		$this->assertTrue($results);
 		
 		
 	}

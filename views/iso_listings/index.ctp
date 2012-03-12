@@ -2,11 +2,12 @@
 	<h2><?php __('Iso Listings');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
+			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('iso_id');?></th>
 			<th><?php echo $this->Paginator->sort('address_id');?></th>
-			<th><?php echo $this->Paginator->sort('state_id');?></th>
-			<th><?php echo $this->Paginator->sort('city_id');?></th>
+			<th><?php echo $this->Paginator->sort('category_id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
+			<th><?php echo $this->Paginator->sort('slug');?></th>
 			<th><?php echo $this->Paginator->sort('url');?></th>
 			<th><?php echo $this->Paginator->sort('phone');?></th>
 			<th><?php echo $this->Paginator->sort('fax');?></th>
@@ -15,6 +16,8 @@
 			<th><?php echo $this->Paginator->sort('keywords');?></th>
 			<th><?php echo $this->Paginator->sort('business_hours');?></th>
 			<th><?php echo $this->Paginator->sort('active');?></th>
+			<th><?php echo $this->Paginator->sort('created');?></th>
+			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -26,19 +29,18 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
+		<td><?php echo $isoListing['IsoListing']['id']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($isoListing['Iso']['name'], array('controller' => 'isos', 'action' => 'view', $isoListing['Iso']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($isoListing['Address']['id'], array('controller' => 'addresses', 'action' => 'view', $isoListing['Address']['id'], 'plugin' => false)); ?>
+			<?php echo $this->Html->link($isoListing['Address']['id'], array('controller' => 'addresses', 'action' => 'view', $isoListing['Address']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($isoListing['State']['name'], array('controller' => 'states', 'action' => 'view', $isoListing['State']['id'], 'plugin' => false)); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($isoListing['City']['name'], array('controller' => 'cities', 'action' => 'view', $isoListing['City']['id'], 'plugin' => false)); ?>
+			<?php echo $this->Html->link($isoListing['Category']['name'], array('controller' => 'categories', 'action' => 'view', $isoListing['Category']['id'])); ?>
 		</td>
 		<td><?php echo $isoListing['IsoListing']['name']; ?>&nbsp;</td>
+		<td><?php echo $isoListing['IsoListing']['slug']; ?>&nbsp;</td>
 		<td><?php echo $isoListing['IsoListing']['url']; ?>&nbsp;</td>
 		<td><?php echo $isoListing['IsoListing']['phone']; ?>&nbsp;</td>
 		<td><?php echo $isoListing['IsoListing']['fax']; ?>&nbsp;</td>
@@ -47,6 +49,8 @@
 		<td><?php echo $isoListing['IsoListing']['keywords']; ?>&nbsp;</td>
 		<td><?php echo $isoListing['IsoListing']['business_hours']; ?>&nbsp;</td>
 		<td><?php echo $isoListing['IsoListing']['active']; ?>&nbsp;</td>
+		<td><?php echo $isoListing['IsoListing']['created']; ?>&nbsp;</td>
+		<td><?php echo $isoListing['IsoListing']['modified']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $isoListing['IsoListing']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $isoListing['IsoListing']['id'])); ?>
@@ -73,5 +77,13 @@
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Iso Listing', true), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('List Isos', true), array('controller' => 'isos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Iso', true), array('controller' => 'isos', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Addresses', true), array('controller' => 'addresses', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Address', true), array('controller' => 'addresses', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Categories', true), array('controller' => 'categories', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Category', true), array('controller' => 'categories', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Tags', true), array('controller' => 'tags', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Tag', true), array('controller' => 'tags', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

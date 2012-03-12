@@ -32,6 +32,7 @@
 			'label' => 'Keywords (comma separated)'
 		));
 		echo $this->Form->input('active');
+		echo $this->Form->input('category_id')
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
@@ -41,13 +42,5 @@
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Iso Listings', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Isos', true), array('controller' => 'isos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Iso', true), array('controller' => 'isos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Addresses', true), array('controller' => 'addresses', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Address', true), array('controller' => 'addresses', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List States', true), array('controller' => 'states', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New State', true), array('controller' => 'states', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Cities', true), array('controller' => 'cities', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New City', true), array('controller' => 'cities', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
