@@ -46,7 +46,7 @@ class Iso extends IsosAppModel {
 	public $actsAs = array(
 		'Utils.Sluggable' => array(
 			'label' => 'name',
-			'method' => 'multibyteSlug'
+			'method' => 'multibyteSlug',
 		)
 	);
 }
